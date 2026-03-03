@@ -1,9 +1,9 @@
-# Autorski silnik gier 2D w C++ oraz gra Space Invaders
+# Autorski silnik gier 2D w C++ oraz kosmiczna strzelanka w stylu retro
 
-Projekt semestralny polegający na stworzeniu prostego, zorientowanego obiektowo frameworka (silnika) do gier 2D oraz implementacji klasycznej gry zręcznościowej Space Invaders. 
+Projekt polegający na stworzeniu prostego, zorientowanego obiektowo silnika do gier 2D oraz implementacja kosmicznej strzelanki w stylu retro. 
 
 ## Główne założenia projektu
-Celem projektu jest oddzielenie obsługi multimediów od logiki samej gry. 
+Celem projektu jest stworzenie silnika, który oddzieli logikę samej gry od zarządzania grafiką, dźwiękiem, fizyką oraz pamięcią.
 
 Projekt dzieli się na dwie warstwy:
 1. **Silnik:** Odpowiada za główną pętlę gry, zarządzanie pamięcią i zasobami, obsługę wejścia oraz system detekcji kolizji.
