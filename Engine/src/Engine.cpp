@@ -6,6 +6,8 @@ Engine::Engine() : window( sf::VideoMode({800, 600}), "Okno" ){
     window.setFramerateLimit(60);
 }
 
+
+// Główna pętla gry
 void Engine::run(){
     sf::Clock clock; // Zegar do mierzenia czasu między klatkami
 
@@ -27,9 +29,16 @@ void Engine::processInput(){
 }
 
 void Engine::update(float dt){
-
+    // Tutaj będzie logika aktualizacji stanu gry, np. ruch postaci, kolizje, itp.
+    // Wywoływane będą funkcje aktualizujące różne elementy gry np. player.update(dt)
 }
 
 void Engine::render(){
+    // Czyszczenie okna
+    window.clear(sf::Color::Black);
 
+    // Tu będzie rusowanie grrafiki
+
+    // Wyświetlenie okna
+    window.display();
 }
