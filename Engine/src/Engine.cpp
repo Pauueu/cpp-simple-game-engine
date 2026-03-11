@@ -25,7 +25,14 @@ void Engine::run(){
 }
 
 void Engine::processInput(){
-
+    // Sprawdzanie interakcji użytkownika z oknem
+    while (std::optional event = window.pollEvent())
+    {
+        // Zamknięcie okna, jeśli użytkownik naciśnie "X"
+        if (event->is<sf::Event::Closed>()){
+            window.close();
+        }
+    }
 }
 
 void Engine::update(float dt){
