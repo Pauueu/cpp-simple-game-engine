@@ -16,11 +16,19 @@ find_package(SFML 3 COMPONENTS Graphics Window System REQUIRED)
 include_directories(Engine/include Game/include)
 
 # Pliki źródłowe (.cpp)
-file(GLOB ENGINE_SOURCES "Engine/src/*.cpp")
-file(GLOB GAME_SOURCES "Game/src/*.cpp")
+file(GLOB_RECURSE ALL_SOURCES "Engine/src/*.cpp" "Game/src/*.cpp")
 
-# Budowa pliku wykonawczego (.exe)
-add_executable(${PROJECT_NAME} ${ENGINE_SOURCES} ${GAME_SOURCES})
+# Tworzenie pliku wykonywalnego (.exe) z odnalezionych plików
+add_executable(${PROJECT_NAME} ${ALL_SOURCES})
 
 # Podłączenie biblioteki graficznej
 target_link_libraries(${PROJECT_NAME} PRIVATE SFML::Graphics SFML::Window SFML::System)
+
+# Automatyczne kopiowanie plików DLL
+if(WIN32)
+    add_custom_command(TARGET ${PROJECT_NAME} POST_BUILD
+        COMMAND ${CMAKE_COMMAND} -E copy_directory
+        "C:/SFML/bin"
+        $<TARGET_FILE_DIR:${PROJECT_NAME}>
+    )
+endif()
