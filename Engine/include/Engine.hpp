@@ -1,23 +1,18 @@
 #pragma once
 #include <SFML/Graphics.hpp>
+#include "ResourceManager.hpp"
 
 class Engine{
     private:
-        // Stworzenie okna gry
-        sf::RenderWindow window;
+        sf::RenderWindow window; // Stworzenie okna gry
+        ResourceManager resources; // Stworzenie menedżera zasobów
 
-        // Przetwarzanie zdarzeń (np. klawiatura, mysz)
-        void processInput();
-        // Atualizacja gry
-        void update(float dt);
-        // Rysowanie grafiki
-        void render();
-
+        void processInput();// Metoda przetwarzająca zdarzenia (np. klawiatura, mysz)
+        void update(float dt);// Metoda aktualizująca stan gry
+        void render();// Metoda do rysowania grafiki
 
     public:
-        //Konstruktor 
-        Engine();
+        Engine(); //Konstruktor 
 
-        // Metoda uruchamiająca silnik gry
-        void run();
+        void run(); // Metoda uruchamiająca silnik gry
 };
