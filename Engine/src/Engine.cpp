@@ -44,7 +44,7 @@ void Engine::render(){
     // Czyszczenie okna
     window.clear(sf::Color::Black);
 
-    // Tu będzie rusowanie grrafiki
+    // Tu będzie rysowanie grafiki
 
     // Wyświetlenie okna
     window.display();

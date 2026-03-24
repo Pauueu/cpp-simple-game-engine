@@ -8,7 +8,7 @@ project(RetroShooter VERSION 1.0)
 set(CMAKE_CXX_STANDARD 17)
 set(CMAKE_CXX_STANDARD_REQUIRED ON)
 
-# Gdzie leży SFML
+# Ścieżka do SFML
 set(CMAKE_PREFIX_PATH "C:/SFML")
 find_package(SFML 3 COMPONENTS Graphics Window System REQUIRED)
 

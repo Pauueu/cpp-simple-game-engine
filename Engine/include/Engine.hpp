@@ -5,7 +5,6 @@
 class Engine{
     private:
         sf::RenderWindow window; // Stworzenie okna gry
-        ResourceManager resources; // Stworzenie menedżera zasobów
 
         void processInput();// Metoda przetwarzająca zdarzenia (np. klawiatura, mysz)
         void update(float dt);// Metoda aktualizująca stan gry

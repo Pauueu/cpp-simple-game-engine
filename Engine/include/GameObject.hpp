@@ -9,7 +9,7 @@ class GameObject{
         sf::Vector2f position; // Pozycja obiektu gry
 
     public:
-        GameObject(sf::Texture& texture, float startX, float startY); // Konstruktor
+        GameObject(const std::string& path, float startX, float startY); // Konstruktor
         virtual ~GameObject() = default; // Destruktor
 
         virtual void update(float deltaTime); // Metoda aktualizująca stan obiektu, przyjmuje deltaTime czyli czas między kolejnymi klatkami
@@ -17,4 +17,4 @@ class GameObject{
 
         sf::Vector2f getPosition() const; // Metoda zwracająca pozycje obiektu
         sf::FloatRect getBounds() const; // Metoda zwracająca granice obietu
-}
+};

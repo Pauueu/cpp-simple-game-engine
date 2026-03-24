@@ -18,7 +18,7 @@ private:
 
 public:
     // Stworzenie jednej instancji obiektu
-    static ResourceManager& instance(){
+    static ResourceManager& get(){
         static ResourceManager instance;
 
         return instance;
