@@ -1,24 +1,35 @@
 #pragma once
 #include <SFML/Graphics.hpp>
-// #include <SFML/Audio.hpp>
 #include <map>
 #include <string>
 
 class ResourceManager {
+private:
+    // Mapy do przechowywania zasobów
+    std::map<std::string, sf::Texture> textures;
+    std::map<std::string, sf::Font> fonts;
+    // std::map<std::string, sf::SoundBuffer> soundBuffers;
+
+    ResourceManager() {}; // Konstruktor
+
+    // Zablokowanie możliwośći kopiowania obiektu
+    ResourceManager(const ResourceManager &) = delete;
+    ResourceManager& operator= (const ResourceManager &) = delete;
+
 public:
-    ResourceManager() = default;
+    // Stworzenie jednej instancji obiektu
+    static ResourceManager& instance(){
+        static ResourceManager instance;
+
+        return instance;
+    }
 
     // Funkcje do zapisu zasobów
     sf::Texture& getTexture(const std::string& path);
     sf::Font& getFont(const std::string& path);
     // sf::SoundBuffer& getSoundBuffer(const std::string& path);
 
-    // Funkcja do czyszczenia zasobów
-    void clear();
+    void clear(); // Funkcja do czyszczenia zasobów
 
-private:
-    // Mapy do przechowywania zasobów
-    std::map<std::string, sf::Texture> textures;
-    std::map<std::string, sf::Font> fonts;
-    // std::map<std::string, sf::SoundBuffer> soundBuffers;
+
 };
