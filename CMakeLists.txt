@@ -24,11 +24,19 @@ add_executable(${PROJECT_NAME} ${ALL_SOURCES})
 # Podłączenie biblioteki graficznej
 target_link_libraries(${PROJECT_NAME} PRIVATE SFML::Graphics SFML::Window SFML::System)
 
-# Automatyczne kopiowanie plików DLL
+
 if(WIN32)
+    # Automatyczne kopiowanie plików DLL
     add_custom_command(TARGET ${PROJECT_NAME} POST_BUILD
         COMMAND ${CMAKE_COMMAND} -E copy_directory
         "C:/SFML/bin"
         $<TARGET_FILE_DIR:${PROJECT_NAME}>
+    )
+
+    # Automatyczne kopiowanie folderu assets do folderu z plikiem .exe
+    add_custom_command(TARGET ${PROJECT_NAME} POST_BUILD
+        COMMAND ${CMAKE_COMMAND} -E copy_directory
+        "${CMAKE_CURRENT_SOURCE_DIR}/Game/assets"
+        "$<TARGET_FILE_DIR:${PROJECT_NAME}>/assets"
     )
 endif()
