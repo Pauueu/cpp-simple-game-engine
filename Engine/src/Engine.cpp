@@ -1,5 +1,6 @@
 #include "Engine.hpp"
 #include <optional>
+#include <iostream>
 
 Engine::Engine() : window( sf::VideoMode({800, 600}), "Okno" ){
     // Ustawienie limity klatek na 60 FPS
@@ -36,15 +37,20 @@ void Engine::processInput(){
 }
 
 void Engine::update(float dt){
-    // Tutaj będzie logika aktualizacji stanu gry, np. ruch postaci, kolizje, itp.
-    // Wywoływane będą funkcje aktualizujące różne elementy gry np. player.update(dt)
+    // Logika aktualizacji stanu gry, np. ruch postaci, kolizje, itp.
+
+    for (GameObject* obj : GameObject::gameObjects) {
+        obj->update(dt);
+    }
 }
 
 void Engine::render(){
     // Czyszczenie okna
     window.clear(sf::Color::Black);
 
-    // Tu będzie rysowanie grafiki
+    for (GameObject* obj : GameObject::gameObjects) {
+        obj->draw(window);
+    }
 
     // Wyświetlenie okna
     window.display();

@@ -1,6 +1,7 @@
 #pragma once
 #include <SFML/Graphics.hpp>
 #include "ResourceManager.hpp"
+#include "GameObject.hpp"
 
 class Engine{
     private:

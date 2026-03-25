@@ -9,8 +9,10 @@ class GameObject{
         sf::Vector2f position; // Pozycja obiektu gry
 
     public:
+        static std::vector<GameObject*> gameObjects; // Wspólna lista dla wszystkich obiektów
+
         GameObject(const std::string& path, float startX, float startY); // Konstruktor
-        virtual ~GameObject() = default; // Destruktor
+        virtual ~GameObject(); // Destruktor
 
         virtual void update(float deltaTime); // Metoda aktualizująca stan obiektu, przyjmuje deltaTime czyli czas między kolejnymi klatkami
         virtual void draw(sf::RenderWindow& window); // Metoda do rysowania obiektu na ekranie
