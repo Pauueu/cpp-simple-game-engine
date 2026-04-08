@@ -1,4 +1,5 @@
 #include "Engine.hpp"
+#include "InputManager.hpp"
 #include <optional>
 #include <iostream>
 
@@ -16,6 +17,10 @@ void Engine::run(){
     {
         // Obliczenie czasu od ostatniej klatki, funkcja restart() zapisuje czas i resetuje zegar
         float dt = clock.restart().asSeconds();
+
+        // Wywołanie funkcji Input Managera
+        InputManager::SetPreviousState();
+        InputManager::SetCurrentState();
 
         // Wywołanie głównych funkcji silnika: przetwarzanie zdarzeń, aktualizacja i renderowanie
         processInput();
