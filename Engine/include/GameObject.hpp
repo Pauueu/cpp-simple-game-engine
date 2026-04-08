@@ -8,13 +8,15 @@ class GameObject{
         sf::Sprite sprite; // Sprite reprezentujący obiekt gry
         sf::Vector2f position; // Pozycja obiektu gry
 
+        virtual void onUpdate(float deltaTime); // Funkcja update do nadpisywania przez inne klasy
+
     public:
         static std::vector<GameObject*> gameObjects; // Wspólna lista dla wszystkich obiektów
 
         GameObject(const std::string& path, float startX, float startY); // Konstruktor
         virtual ~GameObject(); // Destruktor
 
-        virtual void update(float deltaTime); // Metoda aktualizująca stan obiektu, przyjmuje deltaTime czyli czas między kolejnymi klatkami
+        void update(float deltaTime); // Metoda aktualizująca stan obiektu, przyjmuje deltaTime czyli czas między kolejnymi klatkami
         virtual void draw(sf::RenderWindow& window); // Metoda do rysowania obiektu na ekranie
 
         sf::Vector2f getPosition() const; // Metoda zwracająca pozycje obiektu

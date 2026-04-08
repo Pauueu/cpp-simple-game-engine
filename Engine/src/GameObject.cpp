@@ -21,7 +21,12 @@ GameObject::~GameObject() {
 
 // Funkcja update
 void GameObject::update(float deltaTime) {
+    onUpdate(deltaTime);
     sprite.setPosition(position);
+}
+
+void GameObject::onUpdate(float deltaTime) {
+
 }
 
 // Funkcja renderująca obiekt na ekranie
