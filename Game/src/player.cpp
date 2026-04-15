@@ -2,7 +2,7 @@
 #include "InputManager.hpp"
 #include <iostream>
 
-Player::Player(const std::string& path, float startX, float startY): GameObject(path, startX, startY) 
+Player::Player(const std::string& path, float startX, float startY, const std::string& tag): GameObject(path, startX, startY, tag) 
 {
     speed = 300.0f;
 }
@@ -22,8 +22,13 @@ void Player::onUpdate(float deltaTime) {
     if (InputManager::GetKey(KeyCode::D)) {
         position.x += speed * deltaTime; // W prawo
     }
-    if (InputManager::GetKeyDown(KeyCode::MouseLeft)) {
-        std::cout<<"Nacisnieto przycisk \n" << static_cast<int>(KeyCode::Count);
+}
 
+void Player::onCollision(GameObject* other) {
+
+    std::cout<<"Dotknieto obiekt z tagiem: " << other->tag << "\n";
+
+    if (other->tag == "Coin") {
+        other->isDead = true; // Usunięcie obietku po dotknięciu go
     }
 }

@@ -8,8 +8,9 @@ private:
 
 protected:
     void onUpdate(float dt);
+    void onCollision(GameObject* other);
 
 public:
     // Konstruktor
-    Player(const std::string& path, float startX, float startY);  
+    Player(const std::string& path, float startX, float startY, const std::string& tag);  
 };
