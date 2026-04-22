@@ -6,12 +6,16 @@
 std::vector<GameObject*> GameObject::gameObjects;
 
 // Konstruktor, z listą inicjalizującą ustawiającą pozycje i texture sprita
-GameObject::GameObject(const std::string& path, float startX, float startY, const std::string& objTag, bool trigger, bool staticObj)
-    : position(startX, startY), sprite(ResourceManager::get().getTexture(path)), tag(objTag), isTrigger(trigger), isStatic(staticObj), isDead(false)
+GameObject::GameObject(const std::string& path, float startX, float startY, float scaleX, float scaleY, const std::string& objTag, bool trigger, bool staticObj)
+    : sprite(ResourceManager::get().getTexture(path)), position(startX, startY), scaleX(scaleX), scaleY(scaleY), tag(objTag), isTrigger(trigger), isStatic(staticObj), isDead(false)
     {
+    
+    sf::FloatRect bounds = sprite.getLocalBounds(); // Pobranie granic sprita
+    sprite.setOrigin({bounds.size.x / 2.0f, bounds.size.y / 2.0f}); // Ustawienie punktu początkowego na środek
 
     sprite.setPosition(position); // Ustawienie pozycji sprita
-
+    setScale(scaleX, scaleY); // Zmiana skali, wielkości tego obiektu
+    
     gameObjects.push_back(this); // Automatyczne dodanie do listy obiektów
 }
 
@@ -31,6 +35,11 @@ void GameObject::onUpdate(float deltaTime) {}
 // Funkcja renderująca obiekt na ekranie
 void GameObject::draw(sf::RenderWindow& window) {
     window.draw(sprite);
+}
+
+// Funkcja ustawiająca skalę obiektu
+void GameObject::setScale(float scaleX, float scaleY) {
+    sprite.setScale({scaleX, scaleY});
 }
 
 // Funkcja zwracająca pozycje obiektu
