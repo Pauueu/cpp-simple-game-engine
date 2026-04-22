@@ -12,5 +12,5 @@ protected:
 
 public:
     // Konstruktor
-    Player(const std::string& path, float startX, float startY, const std::string& tag);  
+    Player(const std::string& path, float startX, float startY, float scaleX, float scaleY, const std::string& tag);  
 };
