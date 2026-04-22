@@ -1,11 +1,17 @@
 #include "Engine.hpp"
 #include "InputManager.hpp"
+#include "SceneManager.hpp"
 #include <optional>
 #include <iostream>
 
-Engine::Engine() : window( sf::VideoMode({800, 600}), "Okno" ){
+Engine::Engine() : window( sf::VideoMode({1280, 720}), "Okno" ){
     // Ustawienie limity klatek na 60 FPS
     window.setFramerateLimit(60);
+
+    // Ustawienie widoku tak by był na środku ekranu, czyli punkt (0, 0) ekranu jest na środku a nie w lewym górnym rogu
+    camera = window.getDefaultView();
+    camera.setCenter({0.0f, 0.0f});
+    window.setView(camera);
 }
 
 
@@ -44,6 +50,10 @@ void Engine::processInput(){
 void Engine::update(float dt){
     // Logika aktualizacji stanu gry, np. ruch postaci, kolizje, itp.
 
+    // Aktualizacja sceny
+    SceneManager::update(dt);
+
+    // Uruchamia funkcje update, każdego obiektu w wektorze obiektów
     for (GameObject* obj : GameObject::gameObjects) {
         obj->update(dt);
     }
@@ -109,7 +119,7 @@ void Engine::update(float dt){
         }
     }
 
-    // Usuwanie obiektó, które mają być zniszczone
+    // Usuwanie obiektów, które mają być zniszczone
     for (auto it = GameObject::gameObjects.begin(); it != GameObject::gameObjects.end();) {
 
         if ((*it)->isDead) {
@@ -127,6 +137,8 @@ void Engine::update(float dt){
 void Engine::render(){
     // Czyszczenie okna
     window.clear(sf::Color::Black);
+
+    window.setView(camera);
 
     for (GameObject* obj : GameObject::gameObjects) {
         obj->draw(window);
