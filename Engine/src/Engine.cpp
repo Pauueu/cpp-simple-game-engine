@@ -1,6 +1,8 @@
 #include "Engine.hpp"
 #include "InputManager.hpp"
 #include "SceneManager.hpp"
+#include "Vector2f.hpp"
+#include "UIElement.hpp"
 #include <optional>
 #include <iostream>
 
@@ -43,6 +45,22 @@ void Engine::processInput(){
         // Zamknięcie okna, jeśli użytkownik naciśnie "X"
         if (event->is<sf::Event::Closed>()){
             window.close();
+        }
+
+        if (event->is<sf::Event::MouseButtonPressed>()) {
+            const auto& click = *event->getIf<sf::Event::MouseButtonPressed>();
+
+            if (click.button == sf::Mouse::Button::Left) {
+                
+                sf::Vector2i mousePosI = click.position;
+                Vector2f mousePos(static_cast<float>(mousePosI.x), static_cast<float>(mousePosI.y));
+
+                for (int i = UIElement::uiElements.size() - 1; i >= 0; i--) {
+                    if (UIElement::uiElements[i]->checkClick(mousePos)) {
+                        break; 
+                    }
+                }
+            }
         }
     }
 }
@@ -140,8 +158,15 @@ void Engine::render(){
 
     window.setView(camera);
 
+    //Rysowaine obiektów
     for (GameObject* obj : GameObject::gameObjects) {
         obj->draw(window);
+    }
+
+    // Rysowanie UI
+    window.setView(window.getDefaultView()); // RESET WIDOKU
+    for (UIElement* ui : UIElement::uiElements) {
+        ui->draw(window);
     }
 
     // Wyświetlenie okna
