@@ -1,9 +1,36 @@
-#include "scenes.hpp"
+﻿#include "scenes.hpp"
 #include "Player.hpp"
 #include "GameObject.hpp"
 #include "InputManager.hpp"
 #include "SceneManager.hpp"
+#include "UIButton.hpp"
+#include "UIText.hpp"
+#include "Vector2f.hpp"
+#include "TestButton.hpp"
 #include <iostream>
+
+void MainMenuScene::onStart() {
+    UIText* titleText = new UIText(L"Tytuł", "assets/fonts/arial.TTF", 64);
+    titleText->setPosition(Vector2f(640.0f, 100.0f));
+    titleText->setColor(0,0,122);
+
+    UIButton* startButton = new UIButton(200.0f, 60.0f, L"Graj", "assets/fonts/arial.TTF", 30);
+    startButton->setFunction([] () {
+        std::cout << "Przycisk zostal klikniety!" << std::endl;
+        SceneManager::loadScene(new GameScene1());
+    });
+    startButton->setPosition(Vector2f(640.0f, 360.0f));
+    startButton->setBackgroundColor(90, 146, 12);
+    startButton->setLabelColor(122, 23, 122);
+}
+
+void MainMenuScene::onUpdate(float dt) {
+
+}
+
+void MainMenuScene::onStop() {
+
+}
 
 
 // Game Scene 1

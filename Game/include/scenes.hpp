@@ -1,6 +1,13 @@
 #pragma once
 #include "Scene.hpp"
 
+class MainMenuScene : public Scene {
+    public:
+        void onStart ();
+        void onUpdate (float dt);
+        void onStop ();
+};
+
 class GameScene1 : public Scene {
     public:
         void onStart ();

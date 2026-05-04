@@ -7,7 +7,7 @@
 int main(){
     Engine engine;
 
-    SceneManager::loadScene(new GameScene1());
+    SceneManager::loadScene(new MainMenuScene());
 
     engine.run();
 
