@@ -1,5 +1,6 @@
 #include "SceneManager.hpp"
 #include "GameObject.hpp"
+#include "UIElement.hpp"
 #include <iostream>
 
 
@@ -24,6 +25,11 @@ void SceneManager::update(float dt) {
             delete obj;
         }
         GameObject::gameObjects.clear();
+
+        for (UIElement* obj : UIElement::uiElements) {
+            delete obj;
+        }
+        UIElement::uiElements.clear();
 
         // Przypisanie nowej sceny do obecnej
         currentScene = nextScene;
