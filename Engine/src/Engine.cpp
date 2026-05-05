@@ -38,6 +38,16 @@ void Engine::run(){
     
 }
 
+void Engine::setWindowSize(unsigned int width, unsigned int height) {
+    window.setSize(sf::Vector2u(width, height)); // Ustawienie rozmiaru okna
+    camera.setSize(sf::Vector2f(width, height)); // Ustwaienie rozmiaru kamery
+    camera.setCenter(sf::Vector2f(0.0f, 0.0f)); // Wyśrodkowanie kamery
+
+    // Ustawienie okna na środku ekranu
+    sf::VideoMode desktop = sf::VideoMode::getDesktopMode();
+    window.setPosition(sf::Vector2i((desktop.size.x - width) / 2, (desktop.size.y - height) / 2));
+}
+
 void Engine::processInput(){
     // Sprawdzanie interakcji użytkownika z oknem
     while (std::optional event = window.pollEvent())
@@ -53,7 +63,8 @@ void Engine::processInput(){
             if (click.button == sf::Mouse::Button::Left) {
                 
                 sf::Vector2i mousePosI = click.position;
-                Vector2f mousePos(static_cast<float>(mousePosI.x), static_cast<float>(mousePosI.y));
+                sf::Vector2f translatedPos =  window.mapPixelToCoords(mousePosI, window.getDefaultView());
+                Vector2f mousePos(translatedPos.x, translatedPos.y);
 
                 for (int i = UIElement::uiElements.size() - 1; i >= 0; i--) {
                     if (UIElement::uiElements[i]->checkClick(mousePos)) {

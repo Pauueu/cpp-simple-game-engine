@@ -7,6 +7,8 @@
 int main(){
     Engine engine;
 
+    engine.setWindowSize(1920, 1080);
+
     SceneManager::loadScene(new MainMenuScene());
 
     engine.run();

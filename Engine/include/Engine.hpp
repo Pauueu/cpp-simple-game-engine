@@ -15,5 +15,7 @@ class Engine{
     public:
         Engine(); //Konstruktor 
 
+        void setWindowSize(unsigned int width, unsigned int height); // Metoda do zmiany rozmiaru okna
+
         void run(); // Metoda uruchamiająca silnik gry
 };
