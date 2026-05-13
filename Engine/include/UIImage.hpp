@@ -11,16 +11,34 @@ class UIImage : public UIElement {
         sf::Sprite sprite;
 
     public:
-        UIImage( float width, float height, const std::string& texturePath)
+        UIImage(const std::string& texturePath, float width = 0.0f, float height = 0.0f)
             : sprite(ResourceManager::get().getTexture(texturePath)) {
 
             sf::FloatRect bounds = sprite.getLocalBounds(); // Wymiary tekstury
 
             sprite.setOrigin(sf::Vector2f(bounds.size.x / 2.0f, bounds.size.y / 2.0f)); // Ustawienie środka na środku tekstury
 
-            // Przeskalowanie tekstury do rozmiarów
-            float scaleX = width / bounds.size.x;
-            float scaleY = height / bounds.size.y;
+            // Skala do zmiany rozmiaru
+            float scaleX = 1.0f;
+            float scaleY = 1.0f;
+
+            // Zmiana wysokości i szereokości
+            if (width > 0.0f && height > 0.0f) {
+                scaleX = width / bounds.size.x;
+                scaleY = height / bounds.size.y;
+            }
+
+            // Zmiana tylko szereokości
+            else if (width > 0.0f && height <= 0.0f) {
+                scaleX = width / bounds.size.x;
+                scaleY = scaleX;
+            }
+
+            // Zmiana tylko wysokości
+            else if (width <= 0.0f && height > 0.0f) {
+                scaleY = height / bounds.size.y;
+                scaleX = scaleY;
+            }
 
             sprite.setScale(sf::Vector2f(scaleX, scaleY)); // Zmiana skali elementu
         }
