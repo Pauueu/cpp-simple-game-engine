@@ -1,13 +1,11 @@
 #include "Engine.hpp"
 #include "SceneManager.hpp"
-#include "scenes.hpp"
+#include "MainMenuScene.hpp"
 
 #include <iostream>
 
 int main(){
     Engine engine;
-
-    engine.setWindowSize(1920, 1080);
 
     SceneManager::loadScene(new MainMenuScene());
 
