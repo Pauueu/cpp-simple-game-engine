@@ -4,7 +4,12 @@
 // Klasa Player dziedziczy po klasie GameObject
 class Player : public GameObject {
 private:
-    float speed;
+    float speed; // Prędkość poeuszania się gracza
+    float bulletSpeed; // Prędkość pocisku gracza
+    int maxHP; // maksymalna ilość żyć gracza
+    int currentHP; // Obecna ilość żyć gracza
+    float shootCooldownTime; // Wartość opóżnienia strzelania
+    float currentCooldownTime; // Zmienna do przechowywania stanu licznika opóźnienia strzelania
 
 protected:
     void onUpdate(float dt);
@@ -12,5 +17,7 @@ protected:
 
 public:
     // Konstruktor
-    Player(const std::string& path, float startX, float startY, float scaleX, float scaleY, const std::string& tag);  
+    Player(const std::string& path, float startX, float startY, float scaleX=1.0f, float scaleY=1.0f, const std::string& tag="Player");
+    
+    void updateHPCounter(int maxHP, int currentHP); // Rysowanie licznika życia
 };
