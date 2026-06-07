@@ -1,6 +1,7 @@
 #pragma once
 #include "UIElement.hpp"
 #include <SFML/Graphics.hpp>
+#include "ResourceManager.hpp"
 #include <string>
 #include <iostream>
 
