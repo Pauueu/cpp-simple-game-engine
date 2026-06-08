@@ -20,4 +20,6 @@ public:
     Player(const std::string& path, float startX, float startY, float scaleX=1.0f, float scaleY=1.0f, const std::string& tag="Player");
     
     void updateHPCounter(int maxHP, int currentHP); // Rysowanie licznika życia
+    void setCurrentHP(int newHP); // Metoda zmieniająca wartość HP gracza
+    int getCurrentHP(); // Metoda zwracająca liczbe HP gracza
 };

@@ -1,0 +1,64 @@
+Date : 2026-05-19 21:15:20
+Directory : c:\Users\paweu\Desktop\cpp-simple-game-engine
+Total : 31 files,  1007 codes, 115 comments, 294 blanks, all 1416 lines
+
+Languages
++----------+------------+------------+------------+------------+------------+
+| language | files      | code       | comment    | blank      | total      |
++----------+------------+------------+------------+------------+------------+
+| C++      |         29 |        964 |        115 |        279 |      1,358 |
+| CMake    |          1 |         32 |          0 |         10 |         42 |
+| Markdown |          1 |         11 |          0 |          5 |         16 |
++----------+------------+------------+------------+------------+------------+
+
+Directories
++----------------------------------------------------------------------------------+------------+------------+------------+------------+------------+
+| path                                                                             | files      | code       | comment    | blank      | total      |
++----------------------------------------------------------------------------------+------------+------------+------------+------------+------------+
+| .                                                                                |         31 |      1,007 |        115 |        294 |      1,416 |
+| . (Files)                                                                        |          2 |         43 |          0 |         15 |         58 |
+| Engine                                                                           |         18 |        652 |         95 |        184 |        931 |
+| Engine\include                                                                   |         12 |        277 |         28 |         87 |        392 |
+| Engine\src                                                                       |          6 |        375 |         67 |         97 |        539 |
+| Game                                                                             |         11 |        312 |         20 |         95 |        427 |
+| Game\include                                                                     |          5 |         70 |          5 |         17 |         92 |
+| Game\src                                                                         |          6 |        242 |         15 |         78 |        335 |
++----------------------------------------------------------------------------------+------------+------------+------------+------------+------------+
+
+Files
++----------------------------------------------------------------------------------+----------+------------+------------+------------+------------+
+| filename                                                                         | language | code       | comment    | blank      | total      |
++----------------------------------------------------------------------------------+----------+------------+------------+------------+------------+
+| c:\Users\paweu\Desktop\cpp-simple-game-engine\CMakeLists.txt                     | CMake    |         32 |          0 |         10 |         42 |
+| c:\Users\paweu\Desktop\cpp-simple-game-engine\Engine\include\Engine.hpp          | C++      |         16 |          0 |          5 |         21 |
+| c:\Users\paweu\Desktop\cpp-simple-game-engine\Engine\include\GameObject.hpp      | C++      |         27 |          4 |         12 |         43 |
+| c:\Users\paweu\Desktop\cpp-simple-game-engine\Engine\include\InputManager.hpp    | C++      |         14 |          0 |          3 |         17 |
+| c:\Users\paweu\Desktop\cpp-simple-game-engine\Engine\include\KeyCode.hpp         | C++      |         39 |          1 |          7 |         47 |
+| c:\Users\paweu\Desktop\cpp-simple-game-engine\Engine\include\ResourceManager.hpp | C++      |         20 |          6 |          9 |         35 |
+| c:\Users\paweu\Desktop\cpp-simple-game-engine\Engine\include\Scene.hpp           | C++      |          8 |          0 |          2 |         10 |
+| c:\Users\paweu\Desktop\cpp-simple-game-engine\Engine\include\SceneManager.hpp    | C++      |         11 |          0 |          3 |         14 |
+| c:\Users\paweu\Desktop\cpp-simple-game-engine\Engine\include\UIButton.hpp        | C++      |         52 |          8 |         13 |         73 |
+| c:\Users\paweu\Desktop\cpp-simple-game-engine\Engine\include\UIElement.hpp       | C++      |         17 |          2 |          8 |         27 |
+| c:\Users\paweu\Desktop\cpp-simple-game-engine\Engine\include\UIImage.hpp         | C++      |         39 |          6 |         14 |         59 |
+| c:\Users\paweu\Desktop\cpp-simple-game-engine\Engine\include\UIText.hpp          | C++      |         27 |          1 |          8 |         36 |
+| c:\Users\paweu\Desktop\cpp-simple-game-engine\Engine\include\Vector2f.hpp        | C++      |          7 |          0 |          3 |         10 |
+| c:\Users\paweu\Desktop\cpp-simple-game-engine\Engine\src\Engine.cpp              | C++      |        128 |         27 |         38 |        193 |
+| c:\Users\paweu\Desktop\cpp-simple-game-engine\Engine\src\GameObject.cpp          | C++      |         37 |         10 |         14 |         61 |
+| c:\Users\paweu\Desktop\cpp-simple-game-engine\Engine\src\InputManager.cpp        | C++      |        132 |          7 |         12 |        151 |
+| c:\Users\paweu\Desktop\cpp-simple-game-engine\Engine\src\ResourceManager.cpp     | C++      |         33 |         17 |         17 |         67 |
+| c:\Users\paweu\Desktop\cpp-simple-game-engine\Engine\src\SceneManager.cpp        | C++      |         31 |          4 |         10 |         45 |
+| c:\Users\paweu\Desktop\cpp-simple-game-engine\Engine\src\UIElement.cpp           | C++      |         14 |          2 |          6 |         22 |
+| c:\Users\paweu\Desktop\cpp-simple-game-engine\Game\include\GameScene.hpp         | C++      |          8 |          0 |          1 |          9 |
+| c:\Users\paweu\Desktop\cpp-simple-game-engine\Game\include\MainMenuScene.hpp     | C++      |          8 |          0 |          1 |          9 |
+| c:\Users\paweu\Desktop\cpp-simple-game-engine\Game\include\bullet.hpp            | C++      |         11 |          1 |          3 |         15 |
+| c:\Users\paweu\Desktop\cpp-simple-game-engine\Game\include\enemy.hpp             | C++      |         26 |          2 |          8 |         36 |
+| c:\Users\paweu\Desktop\cpp-simple-game-engine\Game\include\player.hpp            | C++      |         17 |          2 |          4 |         23 |
+| c:\Users\paweu\Desktop\cpp-simple-game-engine\Game\src\GameScene.cpp             | C++      |         36 |          0 |         14 |         50 |
+| c:\Users\paweu\Desktop\cpp-simple-game-engine\Game\src\MainMenuScene.cpp         | C++      |         19 |          0 |         10 |         29 |
+| c:\Users\paweu\Desktop\cpp-simple-game-engine\Game\src\bullet.cpp                | C++      |         16 |          0 |          3 |         19 |
+| c:\Users\paweu\Desktop\cpp-simple-game-engine\Game\src\enemy.cpp                 | C++      |         92 |         10 |         28 |        130 |
+| c:\Users\paweu\Desktop\cpp-simple-game-engine\Game\src\main.cpp                  | C++      |         10 |          0 |          6 |         16 |
+| c:\Users\paweu\Desktop\cpp-simple-game-engine\Game\src\player.cpp                | C++      |         69 |          5 |         17 |         91 |
+| c:\Users\paweu\Desktop\cpp-simple-game-engine\README.md                          | Markdown |         11 |          0 |          5 |         16 |
+| Total                                                                            |          |      1,007 |        115 |        294 |      1,416 |
++----------------------------------------------------------------------------------+----------+------------+------------+------------+------------+

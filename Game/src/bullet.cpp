@@ -13,7 +13,7 @@ void Bullet::onUpdate(float deltaTime) {
 }
 
 void Bullet::onCollision(GameObject* other) {
-    if (other->tag == "Wall") {
+    if (other->tag == "Wall" || other->tag == "BottomWall") {
         this->isDead = true; // Usunięcie obietku po dotknięciu go
     }
 }

@@ -1,0 +1,6 @@
+Silnik:
+- Dodanie funkcji do aktualizacji tekstu UI.
+- Zarządzanie usuwania obiektów UI, czyli np. tak jak w GameObject można dać isDead i ususwać co klatkę
+
+Gra:
+- Usuwanie na bierząco ikon HP gracza

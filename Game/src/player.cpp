@@ -55,7 +55,15 @@ void Player::onCollision(GameObject* other) {
 
     if (other->tag == "EnemyBullet") {
         other->isDead = true; // Usunięcie pocisku
+        
         currentHP -= 1; // Zmniejszenie życia gracza
+        updateHPCounter(maxHP, currentHP); // Atualizacja UI
+    }
+
+    // W przypadku dotknięcia przeciwnika gracz ginie
+    if (other->tag == "Enemy") {
+        currentHP = 0;
+        isDead = true;
         updateHPCounter(maxHP, currentHP); // Atualizacja UI
     }
 }
@@ -64,9 +72,9 @@ void Player::onCollision(GameObject* other) {
 void Player::updateHPCounter(int maxHP, int currentHP) {
     float posX = -880.0f;
     float posY = -460.0f;
-    float gap = 5.0f;
+    float gap = 7.0f;
 
-    float elementWidth = 50.0f;
+    float elementWidth = 70.0f;
 
     for (int i = 0; i < maxHP; i++) {
         Vector2f position = Vector2f(posX + (elementWidth + gap) * i, posY);
@@ -81,4 +89,16 @@ void Player::updateHPCounter(int maxHP, int currentHP) {
             element->setPosition(position);
         }
     }
+}
+
+// Ustawienie HP gracza
+void Player::setCurrentHP(int newHP){
+    currentHP = newHP;
+    updateHPCounter(maxHP, currentHP);
+}
+
+// Zwraca liczbę HP
+int Player::getCurrentHP(){
+    updateHPCounter(maxHP, currentHP);
+    return currentHP;
 }
