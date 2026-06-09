@@ -6,7 +6,13 @@
 #include <optional>
 #include <iostream>
 
-Engine::Engine() : window( sf::VideoMode({1280, 720}), "Okno" ){
+Engine::Engine() {
+    // Pobranie rozdzielczośći monitora
+    sf::VideoMode desktopRes = sf::VideoMode::getDesktopMode(); 
+
+    // Stworzzenie okna pełnoekranowego
+    window.create(desktopRes, "", sf::State::Fullscreen);
+
     // Ustawienie limity klatek na 60 FPS
     window.setFramerateLimit(60);
 
@@ -39,7 +45,10 @@ void Engine::run(){
 }
 
 void Engine::setWindowSize(unsigned int width, unsigned int height) {
-    window.setSize(sf::Vector2u(width, height)); // Ustawienie rozmiaru okna
+    window.create(sf::VideoMode({width, height}), "", sf::State::Windowed); // Stworzenie nowego okna
+
+    window.setFramerateLimit(60); // Ustawienie limitu klatek po zmianie okna
+
     camera.setSize(sf::Vector2f(width, height)); // Ustwaienie rozmiaru kamery
     camera.setCenter(sf::Vector2f(0.0f, 0.0f)); // Wyśrodkowanie kamery
 
@@ -63,7 +72,7 @@ void Engine::processInput(){
             if (click.button == sf::Mouse::Button::Left) {
                 
                 sf::Vector2i mousePosI = click.position;
-                sf::Vector2f translatedPos =  window.mapPixelToCoords(mousePosI, window.getDefaultView());
+                sf::Vector2f translatedPos =  window.mapPixelToCoords(mousePosI, camera);
                 Vector2f mousePos(translatedPos.x, translatedPos.y);
 
                 for (int i = UIElement::uiElements.size() - 1; i >= 0; i--) {
@@ -83,8 +92,8 @@ void Engine::update(float dt){
     SceneManager::update(dt);
 
     // Uruchamia funkcje update, każdego obiektu w wektorze obiektów
-    for (GameObject* obj : GameObject::gameObjects) {
-        obj->update(dt);
+    for (int i = 0; i < GameObject::gameObjects.size(); i++) {
+        GameObject::gameObjects[i]->update(dt);
     }
 
     // KOLIZJE
@@ -175,7 +184,6 @@ void Engine::render(){
     }
 
     // Rysowanie UI
-    window.setView(window.getDefaultView()); // RESET WIDOKU
     for (UIElement* ui : UIElement::uiElements) {
         ui->draw(window);
     }
