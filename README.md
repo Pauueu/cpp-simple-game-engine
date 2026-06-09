@@ -1,6 +1,6 @@
 # Autorski silnik gier 2D w C++ oraz kosmiczna strzelanka w stylu retro
 
-Projekt polegający na stworzeniu prostego, zorientowanego obiektowo silnika do gier 2D oraz implementacja kosmicznej strzelanki w stylu retro. 
+Projekt polegający na stworzeniu prostego, zorientowanego obiektowo silnika do gier 2D oraz implementacja kosmicznej strzelanki w stylu retro.
 
 ## Główne założenia projektu
 Celem projektu jest stworzenie  silnika, który oddziela logikę samej gry od zarządzania niskopoziomowego (grafika, pamięć, fizyka). Projekt dzieli się na dwie główne warstwy:
